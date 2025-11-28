@@ -29,6 +29,7 @@ from modules.ftp_enum import enumerate_ftp
 from modules.ssh_enum import enumerate_ssh
 from modules.smb_enum import enumerate_smb
 from modules.dns_enum import enumerate_dns
+from modules.db_enum import enumerate_database
 
 # ============================================================================
 # MAIN ORCHESTRATOR
@@ -175,7 +176,7 @@ class ReconToolkit:
         Run specific enumeration based on type
         
         Args:
-            enum_type: Type of enumeration (web, ftp, ssh, smb, dns)
+            enum_type: Type of enumeration (web, ftp, ssh, smb, dns, database)
             port: Port number
             
         Returns:
@@ -201,6 +202,9 @@ class ReconToolkit:
         
         elif enum_type == 'dns':
             return enumerate_dns(self.target, port)
+        
+        elif enum_type == 'database':
+            return enumerate_database(self.target, port)
         
         return {}
 

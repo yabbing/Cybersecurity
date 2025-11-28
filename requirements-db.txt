@@ -1,0 +1,11 @@
+# Optional Database Enumeration Dependencies
+# Install these for enhanced database enumeration capabilities
+
+# MySQL enumeration
+mysql-connector-python>=8.0.0
+
+# PostgreSQL enumeration
+psycopg2-binary>=2.9.0
+
+# MSSQL enumeration
+pymssql>=2.2.0

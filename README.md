@@ -27,6 +27,7 @@ This tool is designed for:
   - **SSH (22)**: Version detection, banner analysis
   - **SMB (139/445)**: Share enumeration
   - **DNS (53)**: Zone transfers, record queries
+  - **Databases (1433/3306/5432)**: MySQL, PostgreSQL, MSSQL enumeration
 - **User Confirmation**: Optional prompts before running each tool
 - **Dual Reports**: Generates both JSON and styled HTML reports
 - **Colored Output**: Easy-to-read terminal output with color coding
@@ -60,6 +61,9 @@ pip install -r requirements.txt
 
 # Install sublist3r (optional)
 pip install sublist3r
+
+# Install database enumeration libraries (optional)
+pip install -r requirements-db.txt
 ```
 
 #### Linux
@@ -78,6 +82,9 @@ sudo dpkg -i feroxbuster_amd64.deb
 
 # Install sublist3r
 pip install sublist3r
+
+# Install database enumeration libraries (optional)
+pip install -r requirements-db.txt
 ```
 
 ## 🎯 Usage
@@ -157,7 +164,9 @@ Cybersecurity/
 ├── recon_toolkit.py          # Main application
 ├── config.py                  # Configuration settings
 ├── requirements.txt           # Python dependencies
+├── requirements-db.txt        # Optional database libraries
 ├── README.md                  # This file
+├── DATABASE_ENUM.md           # Database enumeration guide
 └── modules/
     ├── port_scanner.py        # Nmap integration
     ├── web_enum.py            # Web enumeration
@@ -165,6 +174,7 @@ Cybersecurity/
     ├── ssh_enum.py            # SSH enumeration
     ├── smb_enum.py            # SMB enumeration
     ├── dns_enum.py            # DNS enumeration
+    ├── db_enum.py             # Database enumeration
     ├── utils.py               # Utility functions
     └── report_generator.py    # Report generation
 ```

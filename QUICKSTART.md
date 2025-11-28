@@ -28,6 +28,7 @@ pip install -r requirements.txt
 - **feroxbuster**: https://github.com/epi052/feroxbuster/releases
 - **sublist3r**: `pip install sublist3r`
 - **smbclient**: Usually pre-installed on Linux, or install via package manager
+- **Database libraries**: `pip install -r requirements-db.txt` (for MySQL/PostgreSQL/MSSQL enumeration)
 
 ## Step 3: Verify Installation
 
@@ -95,8 +96,10 @@ Cybersecurity/
 ├── recon_toolkit.py          # Main script
 ├── config.py                  # Configuration
 ├── requirements.txt           # Python deps
+├── requirements-db.txt        # Optional database libraries
 ├── README.md                  # Full documentation
 ├── QUICKSTART.md             # This file
+├── DATABASE_ENUM.md          # Database enumeration guide
 ├── modules/
 │   ├── __init__.py
 │   ├── port_scanner.py
@@ -105,6 +108,7 @@ Cybersecurity/
 │   ├── ssh_enum.py
 │   ├── smb_enum.py
 │   ├── dns_enum.py
+│   ├── db_enum.py            # Database enumeration
 │   ├── utils.py
 │   └── report_generator.py
 └── reports/                   # Created automatically

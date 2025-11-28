@@ -12,6 +12,7 @@ from .ftp_enum import FTPEnumerator, enumerate_ftp
 from .ssh_enum import SSHEnumerator, enumerate_ssh
 from .smb_enum import SMBEnumerator, enumerate_smb
 from .dns_enum import DNSEnumerator, enumerate_dns
+from .db_enum import DatabaseEnumerator, enumerate_database
 from .report_generator import generate_reports
 
 __all__ = [
@@ -27,5 +28,7 @@ __all__ = [
     'enumerate_smb',
     'DNSEnumerator',
     'enumerate_dns',
+    'DatabaseEnumerator',
+    'enumerate_database',
     'generate_reports',
 ]

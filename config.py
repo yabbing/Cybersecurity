@@ -70,6 +70,9 @@ SSH_TIMEOUT = 30  # seconds
 # SMB enumeration settings
 SMB_TIMEOUT = 60  # seconds
 
+# Database enumeration settings
+DB_TIMEOUT = 30  # seconds
+
 # ============================================================================
 # PORT MAPPINGS
 # ============================================================================
@@ -83,6 +86,9 @@ PORT_ENUM_MAPPING = {
     139: "smb",
     443: "web",
     445: "smb",
+    1433: "database",  # MSSQL
+    3306: "database",  # MySQL
+    5432: "database",  # PostgreSQL
     8080: "web",
     8443: "web",
 }
